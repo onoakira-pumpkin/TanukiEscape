@@ -1294,7 +1294,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   flashEffect: {fileID: 3077629966961506096, guid: b1df44e1934294d8a852c9ab28f269c6, type: 3}
   gameManager: {fileID: 1105488871}
-  pictureId: 0
+  pictureId: 1
 --- !u!114 &1339724140
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1452,7 +1452,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1919671964}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: c79387a20f85549dd94b14eb27553be8, type: 2}
   m_CullingMode: 0
@@ -1478,7 +1478,7 @@ MonoBehaviour:
   panelNameSpace: {fileID: 464850321}
   gameManager: {fileID: 1105488871}
   charPrefab: {fileID: 1182172153126615629, guid: 87337f589d0c147129f511b306929293, type: 3}
-  targetId: 0
+  targetId: 1
   CharIdList: 100000001700000007000000
 --- !u!114 &1919671971
 MonoBehaviour:
@@ -1650,6 +1650,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1088872521}
     m_Modifications:
+    - target: {fileID: 5265673157566151177, guid: 7bb3ae1075f0349a5a04ce00152b9e31, type: 3}
+      propertyPath: targetId
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5265673157566151177, guid: 7bb3ae1075f0349a5a04ce00152b9e31, type: 3}
       propertyPath: gameManager
       value: 

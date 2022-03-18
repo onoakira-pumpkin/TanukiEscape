@@ -141,7 +141,6 @@ MonoBehaviour:
   imageBigPhotoContent: {fileID: 5473895192815866898}
   textBigPhoto: {fileID: 7336295460533590211}
   imageBigPhoto: {fileID: 2288359111498839576}
-  bigPhoto: {fileID: 1669851176988459055}
   speed: 2
 --- !u!1 &2288359111498839576
 GameObject:
@@ -252,8 +251,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -4.8899994, y: -371.51}
-  m_SizeDelta: {x: 1176.7, y: 670.9}
+  m_AnchoredPosition: {x: 0.66995, y: -292}
+  m_SizeDelta: {x: 808.84, y: 461.1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3398768696390416748
 CanvasRenderer:
@@ -327,7 +326,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -4.8900146, y: 85.51984}
+  m_AnchoredPosition: {x: -4.8899536, y: 85.51984}
   m_SizeDelta: {x: -98.140015, y: 82.07001}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &410901723642670277

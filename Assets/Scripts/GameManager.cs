@@ -39,11 +39,11 @@ public class GameManager : MonoBehaviour
     void LoadTargetName2IdDic()
     {
         targetName2Id = new Dictionary<string, int>();
-        targetName2Id.Add("ImageDoa", 1);
-        targetName2Id.Add("ImageTanuki", 2);
-        targetName2Id.Add("ImageDoa2", 3);
+        targetName2Id.Add("Tanuki", 1);
+        targetName2Id.Add("Creature1", 2);
+        targetName2Id.Add("Doa1", 3);
 
-        Id2targetName = new string[] { "none", "ImageDoa", "ImageTanuki", "ImageDoa2" };
+        Id2targetName = new string[] { "none", "Tanuki", "Creature1", "Doa1" };
 
 
     }
@@ -104,8 +104,8 @@ public class GameManager : MonoBehaviour
         print(pictureId);
         switch (targetId)
         {
-            case 1:
-                if (pictureId == 0)
+            case 2:
+                if (pictureId == 1)
                 {
                     GameObject obj = Instantiate(doa2, canvasRoomTransform);
                     obj.GetComponent<RectTransform>().localPosition = targetLocalPosition;
@@ -114,6 +114,7 @@ public class GameManager : MonoBehaviour
                 break;
 
             default:
+
                 break;
         }
     }
