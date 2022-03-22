@@ -9,9 +9,12 @@ public class CharMove : MonoBehaviour
 
     public Sprite sprite1;
     public Sprite sprite2;
+    public int charId;
 
     Image charImage;
     IEnumerator routine;
+
+    static float speed = 1.0f;
 
 
     private void Awake()
@@ -56,11 +59,42 @@ public class CharMove : MonoBehaviour
 
 
     // Idの文字をspriteに設定する
-    public void SetCharSprite(int charId)
+    public void SetCharSprite(int char_Id)
     {
-        sprite1 = sprites1[charId];
-        sprite2 = sprites2[charId];
+        sprite1 = sprites1[char_Id];
+        sprite2 = sprites2[char_Id];
+        charId = char_Id;
 
+
+    }
+
+    public void StartVanish()
+    {
+        StartCoroutine(Vanish());
+    }
+
+
+    // 文字が消える演出
+    public IEnumerator Vanish()
+    {
+        Vector3 startScale = this.GetComponent<RectTransform>().localScale;
+        Vector3 endScale = new Vector3(0.0f, 0.0f, 1.0f) ;
+        Vector3 localScale = new Vector3();
+
+        float tick = 0.0f;
+
+        while (tick < 1.0f)
+        {
+            tick += Time.deltaTime * speed;
+
+            localScale = Vector3.Lerp(startScale, endScale, tick); // 線形補間
+
+            this.GetComponent<RectTransform>().localScale = localScale;
+
+            yield return null;
+        }
+
+        Destroy(this.gameObject);
     }
 
 

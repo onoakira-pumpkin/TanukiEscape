@@ -62,6 +62,7 @@ public class DragFilm : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDrag
         rectTransform.anchoredPosition = prevPos;
        
         var raycastResults = new List<RaycastResult>();
+        bool _flag = false;
 
         EventSystem.current.RaycastAll(eventData, raycastResults);
 
@@ -73,13 +74,16 @@ public class DragFilm : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDrag
                 Debug.Log("picuture shotting : " + targetName);
                 TargetManager targetManager = hit.gameObject.GetComponent<TargetManager>();
                 gameManager.ChangeTarget(targetManager.targetId, pictureId, hit.gameObject.GetComponent<RectTransform>().localPosition);
+                _flag = true;
             }
 
         }
 
+        if (!_flag)
+        {
+            gameManager.SetRoomBack();
+        }
 
-        // 背景を部屋に戻す
-        gameManager.SetRoomBack();
         // Raycastを戻す
         GetComponent<Image>().raycastTarget = true;
     
