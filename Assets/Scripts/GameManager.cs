@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
     public GameObject messagePrefab;
     public GameObject bigPhotoPrefab;
     public GameObject untouchPanel;
+    public GameObject Album;
 
     // ターゲットプレハブ
     public GameObject doa;
@@ -96,6 +97,18 @@ public class GameManager : MonoBehaviour
     {
         bigPhoto = Instantiate(bigPhotoPrefab, canvasRoomTransform);
         bigPhotoManager = bigPhoto.GetComponent<BigPhotoManager>();
+    }
+
+    // アルバムの表示
+    public void ShowAlbum()
+    {
+        Album.SetActive(true);
+    }
+
+    // アルバムの非表示
+    public void DeleteAlbum()
+    {
+        Album.SetActive(false);
     }
 
     // 背景を黒に

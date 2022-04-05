@@ -22,7 +22,8 @@ public class TapFilm : MonoBehaviour, IPointerClickHandler
 
     public void OnPointerClick(PointerEventData data)
     {
-        gameManager.ShowBigPicture(targetId);
-        
+        // gameManager.ShowBigPicture(targetId);
+        gameManager.ShowAlbum();
+     
     }
 }
