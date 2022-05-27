@@ -15,6 +15,8 @@ public class GameManager : MonoBehaviour
     public GameObject bigPhotoPrefab;
     public GameObject untouchPanel;
     public GameObject Album;
+    public GameObject AlbumBase;
+    public GameObject AlbumContent;
 
     // ターゲットプレハブ
     public GameObject doa;
@@ -31,12 +33,17 @@ public class GameManager : MonoBehaviour
     // 変数
     public bool isDragPhoto = false; // 写真をドラッグ中はture
     public bool isUnknown = false;
+    public AlbumStatus albumStatus;
+
+    int PHOTONUM = 10;
 
     // Start is called before the first frame update
     void Start()
     {
         canvasRoomTransform = canvasRoom.GetComponent<RectTransform>();
         LoadTargetName2IdDic();
+
+        albumStatus = new AlbumStatus(PHOTONUM);
     }
 
     // Update is called once per frame
@@ -54,6 +61,7 @@ public class GameManager : MonoBehaviour
     void LoadTargetName2IdDic()
     {
         targetName2Id = new Dictionary<string, int>();
+        targetName2Id.Add("none", 0);
         targetName2Id.Add("Tanuki", 1);
         targetName2Id.Add("Creature1", 2);
         targetName2Id.Add("Doa", 3);
@@ -85,6 +93,16 @@ public class GameManager : MonoBehaviour
 
         // target_idの取得
         int target_id = targetName2Id[targetName];
+        if (albumStatus.existPhotoInAlbum(target_id) == false)
+        {
+            albumStatus.changeAlbumStatus(target_id, true);
+            Debug.Log("<color=green>target is added to Album </color>");
+        }
+        else
+        {
+            Debug.Log("<color=green>target has been added to Album. Nothing is changed. </color>");
+        }
+       
 
         // 写真の表示
         ShowBigPicture(target_id);
@@ -99,17 +117,6 @@ public class GameManager : MonoBehaviour
         bigPhotoManager = bigPhoto.GetComponent<BigPhotoManager>();
     }
 
-    // アルバムの表示
-    public void ShowAlbum()
-    {
-        Album.SetActive(true);
-    }
-
-    // アルバムの非表示
-    public void DeleteAlbum()
-    {
-        Album.SetActive(false);
-    }
 
     // 背景を黒に
     public void SetBlackBack()
@@ -123,6 +130,79 @@ public class GameManager : MonoBehaviour
         imageBlackBack.color = new Color32(0, 0, 0, 0);
     }
 
+
+
+    // ----------------------------------------------------------//
+    //
+    //
+    //                  Album handle
+    //
+    //
+    //-----------------------------------------------------------//
+
+    // アルバムの表示
+
+    public void ShowAlbum()
+    {
+        MakeAlbumcontents();
+        Album.SetActive(true);
+        PrintAlbumStatus();
+    }
+
+    // アルバムの非表示
+    public void DeleteAlbum()
+    {
+        Album.SetActive(false);
+    }
+
+    // アルバムの更新
+    public void SetPhoto2Album(int PhotoId, bool isAdded)
+    {
+        albumStatus.changeAlbumStatus(PhotoId, isAdded);
+    }
+
+    // アルバムに登録
+
+    // アルバムから全要素削除
+    void CleanPhoto()
+    {
+        foreach (Transform n in AlbumBase.transform)
+        {
+            GameObject.Destroy(n.gameObject);
+        }
+    }
+    
+
+// アルバム表示の作成
+void MakeAlbumcontents()
+    {
+        CleanPhoto();
+
+        for (int pId = 1; pId < albumStatus.photoNum; pId ++)
+        {
+            if (albumStatus.existPhotoInAlbum(pId))
+            {
+                GameObject albumContent = Instantiate(AlbumContent, AlbumBase.transform);
+            }
+            else
+            {
+                GameObject albumContent = Instantiate(AlbumContent, AlbumBase.transform);
+                albumContent.GetComponent<Image>().color = new Color32(0, 0, 0, 0);
+            }
+        }
+    }
+
+    // アルバム情報のデバッグ表示
+    public void PrintAlbumStatus()
+    {
+        string _s = "";
+        foreach (bool isAdded in albumStatus.isAddedPhoto)
+        {
+            _s += isAdded.ToString() + " ";
+        }
+
+        print(_s);
+    }
 
 
     // ----------------------------------------------------------//
