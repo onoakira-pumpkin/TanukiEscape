@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 174c761493290449d8cda5b47e398315, type: 3}
   m_Name: Doa
   m_EditorClassIdentifier: 
-  name: Doa
+  name: "\u3069\u3042"
   photoId: 3
   photoSprite: {fileID: 0}

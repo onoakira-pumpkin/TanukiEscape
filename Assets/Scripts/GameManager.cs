@@ -180,14 +180,16 @@ void MakeAlbumcontents()
 
         for (int pId = 1; pId < albumStatus.photoNum; pId ++)
         {
+            GameObject albumContent = Instantiate(AlbumContent, AlbumBase.transform);
+
             if (albumStatus.existPhotoInAlbum(pId))
             {
-                GameObject albumContent = Instantiate(AlbumContent, AlbumBase.transform);
+                albumContent.GetComponent<AlbumContent>().AlbumContentSelect(pId, true);
             }
             else
             {
-                GameObject albumContent = Instantiate(AlbumContent, AlbumBase.transform);
-                albumContent.GetComponent<Image>().color = new Color32(0, 0, 0, 0);
+                albumContent.GetComponent<AlbumContent>().AlbumContentSelect(0, false);
+                // albumContent.GetComponent<Image>().color = new Color32(0, 0, 0, 0);
             }
         }
     }

@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 174c761493290449d8cda5b47e398315, type: 3}
   m_Name: Nuki
   m_EditorClassIdentifier: 
-  name: Nuki
+  name: "\u306C\u304D"
   photoId: 4
   photoSprite: {fileID: 0}

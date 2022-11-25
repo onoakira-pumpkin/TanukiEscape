@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5018409807064887603}
   - component: {fileID: 8821276946623145817}
   - component: {fileID: -7032220325510114332}
+  - component: {fileID: 2908875659680146919}
   m_Layer: 5
   m_Name: PictureContent
   m_TagString: Untagged
@@ -81,7 +82,7 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 0}
+  m_TargetGraphic: {fileID: 8821276946623145817}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
@@ -147,6 +148,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cd36dd4b048041578db3137902d4f3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2908875659680146919
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 929943301236093756}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21126bd074ffa47d38bcc329a8dfd224, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pictureId: 0
+  pictureSprite: {fileID: 0}
+  pictureName: 
+  canTap: 0
+  ImageAlbumContent: {fileID: 3953932958932018962}
+  TextAlbumContent: {fileID: 2541464415548164357}
 --- !u!1 &2541464415548164357
 GameObject:
   m_ObjectHideFlags: 0

@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 174c761493290449d8cda5b47e398315, type: 3}
   m_Name: Tanuki
   m_EditorClassIdentifier: 
-  name: Tanuki
+  name: "\u305F\u306C\u304D"
   photoId: 1
   photoSprite: {fileID: 21300000, guid: 020e848054f354dd69d71f833e4c7a46, type: 3}
